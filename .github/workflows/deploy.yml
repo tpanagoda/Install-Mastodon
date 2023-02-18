@@ -13,9 +13,6 @@ jobs:
 
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.7
-
-    - name: executing remote ssh commands using ssh key
-      uses: ./
       with:
         host: "44.193.28.39"
         username: ubuntu
