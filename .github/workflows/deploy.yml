@@ -11,15 +11,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Ping Ansible Server
-      env:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-
-      run: |
-        mkdir .ssh
-        echo "Showing Secret Keys"
-        echo ${{ secrets.SSH_KEY }}
-        echo "$SSH_KEY" > .ssh/id_ansible_server
-        chmod 600 .ssh/id_ansible_server
-        ssh ubuntu@34.201.165.165
-        echo "Iam In"
+    - name: executing remote ssh commands using password
+      uses: ./
+      with:
+        host: "44.193.28.39"
+        username: "ubuntu"
+        password: ${{ secrets.SSH_KEY }}
+        port: 22
+        script: whoami
