@@ -31,4 +31,6 @@ jobs:
           rm -rf Install-Mastodon
           git clone https://github.com/tpanagoda/Install-Mastodon.git
           cd Install-Mastodon
+          echo ${{ secrets.SSH_KEY }} > ansible-node.pem
+          chmod 600 ansible-node.pem
           ansible-playbook install.yml
