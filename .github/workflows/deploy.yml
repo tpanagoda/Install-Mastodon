@@ -16,6 +16,6 @@ jobs:
       with:
         host: "44.193.28.39"
         username: "ubuntu"
-        password: ${{ secrets.SSH_KEY }}
+        key: ${{ secrets.SSH_KEY }}
         port: 22
         script: whoami
