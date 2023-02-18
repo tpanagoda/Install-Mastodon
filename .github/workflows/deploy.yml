@@ -29,7 +29,7 @@ jobs:
         port: "22"
         script: git clone https://github.com/tpanagoda/Install-Mastodon.git && cd Install-Mastodon
 
-    - name: Run Ansible
+    - name: Clone Ansible repo
       uses: ./
       with:
         host: "44.193.28.39"
@@ -37,3 +37,12 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: "22"
         script: git clone https://github.com/tpanagoda/Install-Mastodon.git && cd Install-Mastodon
+
+    - name: Run Ansible
+      uses: ./
+      with:
+        host: "44.193.28.39"
+        username: ubuntu
+        key: ${{ secrets.SSH_KEY }}
+        port: "22"
+        script: ansible-playbook install.yml
