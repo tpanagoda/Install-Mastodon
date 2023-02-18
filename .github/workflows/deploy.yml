@@ -11,16 +11,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using ssh key
       uses: ./
       with:
         host: "44.193.28.39"
-        username: "ubuntu"
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
-        script: |
-          cd ~
-          mkdir new_folder 
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: "22"
+        script: whoami >> /home/ubuntu/test_file
 
     - name: set ansible config secrets
       env:
