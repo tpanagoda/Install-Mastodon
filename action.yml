@@ -17,3 +17,10 @@ inputs:
 branding:
   icon: 'terminal'
   color: 'gray-dark'
+
+runs:
+  using: composite
+  steps:
+  - name: Log the next step action
+    run: ls -ltr
+    shell: bash
