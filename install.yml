@@ -4,11 +4,11 @@
   gather_facts: false
   tasks:
 
-    - name: Update
-      apt:
-        update_cache: yes
-        upgrade: yes
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - name: Update
+    apt:
+      update_cache: yes
+      upgrade: yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - name: Return motd to registered var
-      command: apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+  - name: Return motd to registered var
+    command: apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
