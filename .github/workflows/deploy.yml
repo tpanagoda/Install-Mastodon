@@ -22,7 +22,7 @@ jobs:
           cd ~
           mkdir new_folder 
 
-        - name: set ansible config secrets
+    - name: set ansible config secrets
       env:
         SSH_KEY: ${{ secrets.SSH_KEY }}
       run: |
