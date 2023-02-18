@@ -21,16 +21,7 @@ jobs:
         script: whoami >> /home/ubuntu/test_file && cat /home/ubuntu/test_file 
 
     - name: Clone Repo
-      uses: ./
-      with:
-        host: "44.193.28.39"
-        username: ubuntu
-        key: ${{ secrets.SSH_KEY }}
-        port: "22"
-        script: git clone https://github.com/tpanagoda/Install-Mastodon.git && cd Install-Mastodon
-
-    - name: Clone Ansible repo
-      uses: ./
+      uses: appleboy/ssh-action@v0.1.7
       with:
         host: "44.193.28.39"
         username: ubuntu
@@ -39,7 +30,7 @@ jobs:
         script: git clone https://github.com/tpanagoda/Install-Mastodon.git && cd Install-Mastodon
 
     - name: Run Ansible
-      uses: ./
+      uses: appleboy/ssh-action@v0.1.7
       with:
         host: "44.193.28.39"
         username: ubuntu
