@@ -20,20 +20,14 @@ jobs:
         port: "22"
         script: whoami >> /home/ubuntu/test_file && cat /home/ubuntu/test_file 
 
-    - name: Clone Repo
+    - name: Clone Repo & Run Ansible
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: "44.193.28.39"
         username: ubuntu
         key: ${{ secrets.SSH_KEY }}
         port: "22"
-        script: git clone https://github.com/tpanagoda/Install-Mastodon.git && cd Install-Mastodon
-
-    - name: Run Ansible
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: "44.193.28.39"
-        username: ubuntu
-        key: ${{ secrets.SSH_KEY }}
-        port: "22"
-        script: ansible-playbook install.yml
+        script: |
+          git clone https://github.com/tpanagoda/Install-Mastodon.git
+          cd Install-Mastodon
+          ansible-playbook install.yml
