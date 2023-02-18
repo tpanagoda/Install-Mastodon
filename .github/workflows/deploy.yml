@@ -1,0 +1,25 @@
+name: Install Mastodon
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on:  ubuntu-latest
+    steps:
+
+    - name: Checkout 
+      uses: actions/checkout@v2
+
+    - name: Ping Ansible Server
+      env:
+        SSH_KEY: ${{ secrets.SSH_KEY }}
+
+      run: |
+        mkdir .ssh
+        echo "Showing Secret Keys"
+        echo ${{ secrets.SSH_KEY }}
+        echo "$SSH_KEY" > .ssh/id_ansible_server
+        chmod 600 .ssh/id_ansible_server
+        ssh ubuntu@34.201.165.165
+        echo "Iam In"
