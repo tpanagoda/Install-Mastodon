@@ -18,15 +18,4 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_KEY }}
         port: "22"
-        script: whoami >> /home/ubuntu/test_file
-
-    - name: set ansible config secrets
-      env:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-      run: |
-        mkdir .ssh
-        echo "Showing Secret Keys"
-        echo ${{ secrets.SSH_KEY }}
-        echo "$SSH_KEY" > .ssh/id_apitest
-        chmod 600 .ssh/id_apitest
-        ssh ubuntu@44.193.28.39
+        script: whoami >> /home/ubuntu/test_file && cat /home/ubuntu/test_file 
