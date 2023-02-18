@@ -16,7 +16,7 @@ jobs:
       with:
         host: "44.193.28.39"
         username: ubuntu
-        key: ${{ secrets.KEY }}
+        key: ${{ secrets.SSH_KEY }}
         port: "22"
         script: whoami >> /home/ubuntu/test_file
 
