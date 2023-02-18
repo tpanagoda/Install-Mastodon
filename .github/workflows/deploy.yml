@@ -28,6 +28,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: "22"
         script: |
+          rm -rf Install-Mastodon
           git clone https://github.com/tpanagoda/Install-Mastodon.git
           cd Install-Mastodon
           ansible-playbook install.yml

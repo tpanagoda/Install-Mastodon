@@ -1,5 +1,4 @@
 ---
-
 - name: Install Mastodon
   hosts: all
   gather_facts: false
