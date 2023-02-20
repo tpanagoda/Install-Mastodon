@@ -1,0 +1,8 @@
+---
+- name: install mastodon
+  hosts:  prod
+  remote_user:  osboxes
+  become: yes
+
+  roles:
+    - install-mastodon
