@@ -1,2 +1,9 @@
 ---
-# tasks file for install-mastodon-role
+- name: Run Setting up System Repositories
+  include_tasks: pre-requisites-debian.yml
+  when: ansible_facts.os_family == "Debian"
+
+- name: Run Setting up System Repositories
+  include_tasks: pre-requisites-centos.yml
+  when: ansible_facts['distribution'] == "CentOS"
+  

@@ -1,8 +1,8 @@
 ---
 - name: install mastodon
   hosts:  prod
+  become:  yes
   remote_user:  osboxes
-  become: yes
 
   roles:
-    - install-mastodon
+    - { role: install-mastodon-role, become: true}

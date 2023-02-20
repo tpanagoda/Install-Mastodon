@@ -1,0 +1,10 @@
+---
+- name: Populate service facts
+  service_facts:
+
+- name: Setting up System Repositories - Debian
+  shell: |
+    apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+    curl -sL https://deb.nodesource.com/setup_16.x | bash -
+    wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list

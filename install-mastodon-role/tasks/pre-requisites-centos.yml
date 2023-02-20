@@ -1,0 +1,17 @@
+---
+- name: Download curl command - CentOS
+  yum:
+    name: curl
+    state: latest
+
+
+- name: Download node js
+  shell: |
+    curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -
+    yum install -y nodejs
+
+
+#    sudo yum install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+#   curl -sL https://deb.nodesource.com/setup_16.x | bash -
+#   wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+#   echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
