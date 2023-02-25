@@ -5,4 +5,4 @@
   remote_user:  osboxes
 
   roles:
-    - { role: install-mastodon-role, become: true}
+    - { role: install-mastodon-role, become: true,deprecation_warnings: False}
